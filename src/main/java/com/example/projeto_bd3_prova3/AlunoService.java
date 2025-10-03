@@ -11,17 +11,20 @@ public class AlunoService {
     @Autowired
     private AlunoRepository repository;
 
-    public void InserAluno(Aluno aluno) {
+    public void InserirAluno(Aluno aluno) {
 
-        if (aluno.getId() != repository.findById(aluno.getId()).get().getId()) {
             repository.insert(aluno);
-        } else {
-            System.out.println("Aluno já existente");
-        }
+
     }
 
     public List<Aluno> FindAlunos(String turma){
         var retorno = repository.findAllByTurma(turma);
         return retorno;
     }
+    public void deleteAluno(String id) {
+        repository.deleteById(id);
+        System.out.println("Aluno removido com sucesso");
+    }
+
+
 }
