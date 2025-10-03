@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class ProjetoBd3Prova3Application implements CommandLineRunner {
 
@@ -17,10 +20,12 @@ public class ProjetoBd3Prova3Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Aluno aluno = new Aluno();
-        aluno.setNome("Pedro");
-        aluno.setIdade(90);
-        service.SalvarAluno(aluno);
+        List<Aluno> alunos = new ArrayList<>();
+
+        alunos = service.FindAlunos("MAT");
+
+        alunos.forEach(aluno -> System.out.println(aluno.getNome() + aluno.getTurma()));
+
     }
 
 }
