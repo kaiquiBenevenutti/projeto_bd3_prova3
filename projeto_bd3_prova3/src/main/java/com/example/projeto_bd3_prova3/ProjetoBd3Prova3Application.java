@@ -1,10 +1,12 @@
 package com.example.projeto_bd3_prova3;
 
-import com.example.projeto_bd3_prova3.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class ProjetoBd3Prova3Application implements CommandLineRunner {
