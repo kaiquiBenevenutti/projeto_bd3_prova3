@@ -1,25 +1,36 @@
-package com.example.projeto_bd3_prova3;
+    package com.example.projeto_bd3_prova3;
 
-import com.example.projeto_bd3_prova3.service.AlunoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+    import com.example.projeto_bd3_prova3.model.Aluno;
+    import com.example.projeto_bd3_prova3.service.AlunoService;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.CommandLineRunner;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class ProjetoBd3Prova3Application implements CommandLineRunner {
+    import java.util.ArrayList;
+    import java.util.List;
 
-    @Autowired
-    private AlunoService service;
+    @SpringBootApplication
+    public class ProjetoBd3Prova3Application implements CommandLineRunner {
 
-	public static void main(String[] args) {
-        SpringApplication.run(ProjetoBd3Prova3Application.class, args);
-	}
+        @Autowired
+        private AlunoService service;
 
-    @Override
-    public void run(String... args) throws Exception {
+        public static void main(String[] args) {
+            SpringApplication.run(ProjetoBd3Prova3Application.class, args);
 
+        }
+
+        @Override
+        public void run(String... args) throws Exception {
+
+            List<Aluno> alunos = new ArrayList<>();
+
+            alunos = service.buscarAlunos("ADS-2023");
+
+            alunos.forEach(aluno -> System.out.println(aluno.getNome() + aluno.getTurma()));
+
+
+        }
 
     }
-
-}

@@ -4,9 +4,9 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class Disciplina {
-    @Id
-    private String id;
+public class  Disciplina {
+
+
     private String nome;
     private double nota;
 }

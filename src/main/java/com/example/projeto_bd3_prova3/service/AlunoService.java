@@ -18,6 +18,7 @@ public class AlunoService {
     }
 
     public List<Aluno> buscarAlunos(String turma){
+
         return repository.findAllByTurma(turma);
     }
 
@@ -36,10 +37,10 @@ public class AlunoService {
         }
     }
 
-    public Aluno substituirAluno(String idAluno, Aluno novoAluno) {
-        novoAluno.setId(idAluno);
-        return repository.save(novoAluno);
-    }
+    //public Aluno substituirAluno(String idAluno, Aluno novoAluno) {
+   //     novoAluno.setId(idAluno);
+   //     return repository.save(novoAluno);
+  //  }
 
 
 
