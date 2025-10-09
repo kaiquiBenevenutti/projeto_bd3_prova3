@@ -17,9 +17,8 @@ public class AlunoService {
         repository.insert(aluno);
     }
 
-    public List<Aluno> buscarAlunos(String turma){
-
-        return repository.findAllByTurma(turma);
+    public List<Aluno> FindAlunos(String turma){
+        return repository.findByTurma(turma);
     }
 
     public void excluirAluno(String id) {
