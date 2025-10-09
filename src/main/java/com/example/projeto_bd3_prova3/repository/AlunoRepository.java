@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface AlunoRepository extends MongoRepository<Aluno, String>, AlunoRepositoryCustom{
 
-    @Query("{'turma' :  ?0 }")
-    public List<Aluno> findAllByTurma(String turma);
+    List<Aluno> findByTurma(String turma);
+
 }
 

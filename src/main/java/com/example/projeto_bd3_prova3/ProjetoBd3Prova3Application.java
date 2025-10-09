@@ -21,16 +21,9 @@
 
         }
 
-        @Override
-        public void run(String... args) throws Exception {
+        List<Aluno> alunos = new ArrayList<>();
 
-            List<Aluno> alunos = new ArrayList<>();
+        alunos = service.FindAlunos("ADS-2023");
 
-            alunos = service.buscarAlunos("ADS-2023");
-
-            alunos.forEach(aluno -> System.out.println(aluno.getNome() + aluno.getTurma()));
-
-
-        }
-
+        alunos.forEach(aluno -> System.out.println(aluno.getNome() + aluno.getTurma()));
     }
