@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface AlunoRepository extends MongoRepository<Aluno, String> {
 
-    @Query("{'turma' :  ?0 }")
-    public List<Aluno> findAllByTurma(String turma);
+    List<Aluno> findByTurma(String turma);
+
 }

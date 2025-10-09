@@ -18,8 +18,7 @@ public class AlunoService {
     }
 
     public List<Aluno> FindAlunos(String turma){
-        var retorno = repository.findAllByTurma(turma);
-        return retorno;
+        return repository.findByTurma(turma);
     }
     public void deleteAluno(String id) {
         repository.deleteById(id);
