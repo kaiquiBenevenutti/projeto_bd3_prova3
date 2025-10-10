@@ -10,6 +10,8 @@ import java.util.List;
 public interface AlunoRepository extends MongoRepository<Aluno, String>, AlunoRepositoryCustom{
 
     List<Aluno> findByTurma(String turma);
+    void deleteByMatricula(String matricula);
+
 
 }
 

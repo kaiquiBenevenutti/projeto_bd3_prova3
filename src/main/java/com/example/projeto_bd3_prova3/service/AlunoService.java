@@ -21,8 +21,8 @@ public class AlunoService {
         return repository.findByTurma(turma);
     }
 
-    public void excluirAluno(String id) {
-        repository.deleteById(id);
+    public void excluirAlunoPorMatricula(String matricula) {
+        repository.deleteByMatricula(matricula);
         System.out.println("Aluno removido com sucesso");
     }
 
@@ -35,6 +35,7 @@ public class AlunoService {
             System.out.println("Não foi possível alterar a nota");
         }
     }
+    //public aggregate
 
     //public Aluno substituirAluno(String idAluno, Aluno novoAluno) {
    //     novoAluno.setId(idAluno);
