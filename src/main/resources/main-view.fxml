@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="331.0" prefWidth="356.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projeto_bd3_prova3.View.MainViewController">
 
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-
-    <Label fx:id="welcomeLabel" />
-   <VBox prefHeight="200.0" prefWidth="100.0" />
-
-</VBox>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <left>
+        <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="162.0" spacing="20.0" style="-fx-background-color: #5b7cfe;" BorderPane.alignment="CENTER">
+            <children>
+                <Region prefHeight="190.0" prefWidth="166.0" VBox.vgrow="ALWAYS" />
+                <Label alignment="TOP_CENTER" text="Escola" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Times New Roman" size="30.0" />
+                    </font>
+                </Label>
+                <Region prefHeight="148.0" prefWidth="94.0" />
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #4A5CFF;" text="Inserir Aluno" textFill="WHITE">
+                    <font>
+                        <Font name="Times New Roman" size="12.0" />
+                    </font>
+                </Button>
+                <Region prefHeight="121.0" prefWidth="80.0" />
+                <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="111.0" style="-fx-background-color: #4A5CFF;" text="Atualizar" textFill="WHITE">
+                    <font>
+                        <Font name="Times New Roman" size="12.0" />
+                    </font>
+                </Button>
+                <Region prefHeight="121.0" prefWidth="80.0" />
+                <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="108.0" style="-fx-background-color: #D32F2F;" text="Delete" textFill="WHITE">
+                    <font>
+                        <Font name="Times New Roman" size="12.0" />
+                    </font>
+                </Button>
+                <Region prefHeight="298.0" prefWidth="184.0" VBox.vgrow="ALWAYS" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </left>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #E5E5E5;" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+            <children>
+                <Label alignment="TOP_CENTER" text="Alunos" textAlignment="CENTER">
+                    <font>
+                        <Font name="Times New Roman" size="30.0" />
+                    </font>
+                </Label>
+                <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                        <VBox fx:id="alunosVBox" prefHeight="200.0" prefWidth="100.0" spacing="10.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
