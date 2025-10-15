@@ -41,6 +41,10 @@ public class AlunoService {
     }
     //public aggregate
 
+    public List<Aluno> findAll() {
+        return repository.findAll();
+    }
+
    public Aluno substituirAluno(String idAluno, Aluno novoAluno) {
         ObjectId objectId = new ObjectId(idAluno);
         novoAluno.setId(objectId);
