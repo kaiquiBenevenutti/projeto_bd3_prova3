@@ -47,6 +47,12 @@
                     </font>
                 </Button>
 
+                <Button mnemonicParsing="false" onAction="#calcularMedia" text="Calcular Média Notas" style="-fx-background-color: #4CAF50;" textFill="WHITE">
+                    <font>
+                        <Font name="Times New Roman" size="12.0" />
+                    </font>
+                </Button>
+
                 <Region VBox.vgrow="ALWAYS" />
             </children>
         </VBox>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -39,7 +40,6 @@ public class AlunoService {
             System.out.println("Não foi possível alterar a nota");
         }
     }
-    //public aggregate
 
     public List<Aluno> findAll() {
         return repository.findAll();
@@ -50,6 +50,11 @@ public class AlunoService {
         novoAluno.setId(objectId);
         return repository.save(novoAluno);
     }
+
+    public Map<String, Double> getMediaNotasPorDisciplina() {
+        return repository.calcularMediaPorDisciplina();
+    }
+
 
 }
 
