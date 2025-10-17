@@ -130,10 +130,3 @@ A implementação customizada de atualização de notas usa MongoTemplate para a
 
 Observação: os controladores (MainViewController, AlunoItemController) são gerenciados pelo Spring via setControllerFactory, permitindo injeção de dependências diretamente na camada de UI.
 
-
-
-
-## Dicas e solução de problemas
-- Lombok: certifique-se de habilitar “annotation processing” na IDE e instalar o plugin Lombok. Se aparecer erro de versão do Lombok no build, adicione a propriedade lombok.version no pom.xml.
-- JavaFX: use JDK 21. Em macOS, evite JDK sem módulos JavaFX; o plugin javafx-maven-plugin baixa os artefatos necessários.
-- MongoDB: verifique se o serviço está escutando em localhost:27017 e se o database projeto_bd3_prova3 existe/acessível.
