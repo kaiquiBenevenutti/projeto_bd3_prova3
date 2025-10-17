@@ -29,7 +29,8 @@
                 </Label>
                 <Region prefHeight="60.0" prefWidth="160.0" />
 
-                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #4A5CFF;" text="Inserir Aluno" textFill="WHITE">
+                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #4A5CFF;" text="Inserir Aluno" textFill="WHITE"
+                        fx:id="adicionarbutton" onAction="#adicionarbutton">
                     <font>
                         <Font name="Times New Roman" size="12.0" />
                     </font>
@@ -41,7 +42,8 @@
                     </font>
                 </Button>
 
-                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #D32F2F;" text="Delete" textFill="WHITE">
+                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #D32F2F;" text="Delete" textFill="WHITE"
+                        onAction="#deletar">
                     <font>
                         <Font name="Times New Roman" size="12.0" />
                     </font>
