@@ -106,10 +106,25 @@ public class MainViewController {
         }
     }
 
-
     @FXML
-    private void atualizar() {
-        System.out.println("Botão Atualizar Clicado!");
+    private void atualizarbutton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/atualizar-view.fxml"));
+            Parent root = loader.load();
+
+            AlunoUpdateController updateController = loader.getController();
+
+            updateController.setAlunoService(this.alunoService);
+            updateController.initData(this.alunoSelecionado);
+
+            Stage stage = new Stage();
+            stage.setTitle("Atualizar Aluno: " + alunoSelecionado.getNome());
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+            atualizarListaDeAlunos();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
