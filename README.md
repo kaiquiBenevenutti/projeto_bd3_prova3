@@ -5,7 +5,6 @@ Aplicação desktop (JavaFX) integrada ao Spring Boot e MongoDB para gerenciamen
 
 
 
-
 ## Visão geral
 Este projeto combina Spring Boot (injeção de dependências e acesso a dados via Spring Data MongoDB) com JavaFX (interface gráfica desktop). O contexto Spring é inicializado dentro da aplicação JavaFX, permitindo utilizar serviços e repositórios diretamente nos controladores da UI.
 
@@ -23,7 +22,6 @@ Este projeto combina Spring Boot (injeção de dependências e acesso a dados vi
 - JDK 21 instalado e configurado no PATH
 - Maven 3.9+ instalado
 - MongoDB 7+ em execução (padrão: localhost:27017)
-- Opcional: Docker para subir o MongoDB rapidamente
 
 
 ## Configuração
@@ -70,18 +68,6 @@ mvn clean package
 Observação: o JAR gerado pode não embutir os módulos JavaFX. Para distribuição desktop, recomenda-se usar o objetivo javafx:run durante o desenvolvimento, e para empacotar use ferramentas como jlink/jpackage conforme necessidade.
 
 
-## Estrutura do projeto
-- src/main/java/com/example/projeto_bd3_prova3/ProjetoBd3Prova3Application.java — classe principal Spring Boot (contexto da aplicação)
-- src/main/java/com/example/projeto_bd3_prova3/View/JavaFxApplication.java — inicializa o Spring e carrega a cena JavaFX (FXML)
-- src/main/java/com/example/projeto_bd3_prova3/view controllers — MainViewController, AlunoItemController (controladores da UI)
-- src/main/java/com/example/projeto_bd3_prova3/model/Aluno.java — modelo de domínio mapeado para a coleção alunos
-- src/main/java/com/example/projeto_bd3_prova3/repository — AlunoRepository, AlunoRepositoryCustom, AlunoRepositoryCustomImpl
-- src/main/java/com/example/projeto_bd3_prova3/service/AlunoService.java — regras de negócio para Aluno
-- src/main/resources/main-view.fxml e aluno_item_view.fxml — telas JavaFX
-- src/main/resources/application.properties — propriedades da aplicação e conexão MongoDB
-- pom.xml — dependências e plugins (Spring Boot, JavaFX, Maven Compiler, etc.)
-
-
 ## Modelo de dados
 Coleção: alunos
 
@@ -118,15 +104,10 @@ Centralizadas em AlunoService e repositórios:
 - atualizarNota(String idAluno, String disciplina, double novaNota) — atualiza a nota de uma disciplina específica (update em disciplinas.<disciplina>)
 
 
-A implementação customizada de atualização de notas usa MongoTemplate para aplicar um update atômico no documento do aluno.
-
-
 ## Interface gráfica (JavaFX)
 - Cena principal carregada de main-view.fxml
 - Itens de aluno definidos em aluno_item_view.fxml
 - Título da janela: “Minha Aplicação”
 - Scene padrão: 800x600
 
-
-Observação: os controladores (MainViewController, AlunoItemController) são gerenciados pelo Spring via setControllerFactory, permitindo injeção de dependências diretamente na camada de UI.
 
