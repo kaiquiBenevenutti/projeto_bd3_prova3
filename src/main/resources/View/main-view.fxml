@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projeto_bd3_prova3.View.MainViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projeto_bd3_prova3.Control.MainViewController">
     <left>
         <VBox alignment="TOP_CENTER" fillWidth="true" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #5b7cfe;" BorderPane.alignment="CENTER">
             <padding>
@@ -15,7 +15,7 @@
                 <Region prefHeight="32.0" prefWidth="160.0" />
                 <Label alignment="TOP_CENTER" text="Escola" textAlignment="CENTER" textFill="WHITE">
                     <font>
-                        <Font name="Times New Roman" size="30.0" />
+                        <Font name="System Bold" size="30.0" />
                     </font>
                     <VBox.margin>
                         <Insets bottom="30.0" />
@@ -25,19 +25,19 @@
 
                 <Button fx:id="adicionarbutton" mnemonicParsing="false" onAction="#adicionarbutton" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #4A5CFF;" text="Inserir Aluno" textFill="WHITE">
                     <font>
-                        <Font name="Times New Roman" size="12.0" />
+                        <Font name="System Bold" size="12.0" />
                     </font>
                 </Button>
 
                 <Button fx:id="atualizarbutton" mnemonicParsing="false" onAction="#atualizarbutton" prefHeight="30.0" prefWidth="121.0" style="-fx-background-color: #4A5CFF;" text="Atualizar" textFill="WHITE">
                     <font>
-                        <Font name="Times New Roman" size="12.0" />
+                        <Font name="System Bold" size="12.0" />
                     </font>
                 </Button>
 
                 <Button mnemonicParsing="false" onAction="#deletar" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #D32F2F;" text="Delete" textFill="WHITE">
                     <font>
-                        <Font name="Times New Roman" size="12.0" />
+                        <Font name="System Bold" size="12.0" />
                     </font>
                 </Button>
 
@@ -46,25 +46,36 @@
         </VBox>
     </left>
     <center>
-        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #E5E5E5;" BorderPane.alignment="CENTER">
+        <VBox spacing="10.0" style="-fx-background-color: #f4f5f7;" BorderPane.alignment="CENTER">
             <padding>
                 <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
             </padding>
             <children>
-                <Label alignment="TOP_CENTER" text="Alunos" textAlignment="CENTER">
+                <Label text="Alunos">
                     <font>
-                        <Font name="Times New Roman" size="30.0" />
+                        <Font name="System Bold" size="30.0" />
                     </font>
                 </Label>
-                <Label text="Procurar por turma" />
-                <TextField fx:id="turmaSearchTextField" prefHeight="26.0" prefWidth="416.0" style="-fx-background-color: #ffffff;" />
-                <Button mnemonicParsing="false" onAction="#pesquisar" text="Pesquisar" />
+                <Label text="Procurar por turma">
+                    <font>
+                        <Font name="System" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="turmaSearchTextField" promptText="Digite a turma e clique em pesquisar..." />
+                <Button onAction="#pesquisar" text="Pesquisar" />
 
-                <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                    <content>
-                        <VBox fx:id="alunosVBox" spacing="10.0" />
-                    </content>
-                </ScrollPane>
+                <TableView fx:id="alunosTableView" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="nomeColumn" prefWidth="250.0" text="Nome do Aluno" />
+                        <TableColumn fx:id="turmaColumn" prefWidth="150.0" text="Turma" />
+                        <TableColumn fx:id="matriculaColumn" prefWidth="150.0" text="Matrícula" />
+
+                        <TableColumn fx:id="disciplinasColumn" prefWidth="300.0" text="Disciplinas e Notas" />
+                    </columns>
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                </TableView>
             </children>
         </VBox>
     </center>

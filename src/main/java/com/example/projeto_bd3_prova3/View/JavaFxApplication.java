@@ -21,7 +21,7 @@ public class JavaFxApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/main-view.fxml"));
 
         loader.setControllerFactory(applicationContext::getBean);
 

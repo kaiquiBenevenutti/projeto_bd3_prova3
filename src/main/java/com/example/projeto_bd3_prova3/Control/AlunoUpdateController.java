@@ -1,4 +1,4 @@
-package com.example.projeto_bd3_prova3.View;
+package com.example.projeto_bd3_prova3.Control;
 
 import com.example.projeto_bd3_prova3.model.Aluno;
 import com.example.projeto_bd3_prova3.service.AlunoService;
@@ -8,8 +8,9 @@ import javafx.stage.Stage;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-public class AlunoController {
+public class AlunoUpdateController {
 
     @FXML private TextField nomeTextField;
     @FXML private TextField matriculaTextField;
@@ -17,49 +18,55 @@ public class AlunoController {
     @FXML private TextField disciplinasTextField;
 
     private AlunoService alunoService;
-
+    private Aluno alunoParaAtualizar;
 
     public void setAlunoService(AlunoService alunoService) {
         this.alunoService = alunoService;
     }
 
+    public void initData(Aluno aluno) {
+        this.alunoParaAtualizar = aluno;
+        nomeTextField.setText(aluno.getNome());
+        matriculaTextField.setText(aluno.getMatricula());
+        turmaTextField.setText(aluno.getTurma());
+        disciplinasTextField.setText(mapToString(aluno.getDisciplinas()));
+    }
+
     @FXML
-    private void onSalvarClick() {
-        String nome = nomeTextField.getText().trim();
-        String matricula = matriculaTextField.getText().trim();
-        String turma = turmaTextField.getText().trim();
-        String disciplinasStr = disciplinasTextField.getText().trim();
+    private void onAtualizarClick() {
 
-        Map<String, Double> disciplinasMap = parseDisciplinas(disciplinasStr);
+        alunoParaAtualizar.setNome(nomeTextField.getText().trim());
+        alunoParaAtualizar.setMatricula(matriculaTextField.getText().trim());
+        alunoParaAtualizar.setTurma(turmaTextField.getText().trim());
+        alunoParaAtualizar.setDisciplinas(parseDisciplinas(disciplinasTextField.getText()));
 
-        Aluno novoAluno = new Aluno(null, nome, turma, matricula, disciplinasMap);
-
-        alunoService.inserirAluno(novoAluno);
-        System.out.println("Aluno salvo com sucesso: " + novoAluno.getNome());
-
+        alunoService.atualizarAluno(alunoParaAtualizar);
+        System.out.println("Aluno atualizado com sucesso: " + alunoParaAtualizar.getNome());
         fecharJanela();
     }
 
-
     @FXML
-    private void CancelarClick() {
-        System.out.println("Operação de salvamento cancelada.");
+    private void onCancelarClick() {
         fecharJanela();
     }
-
 
     private void fecharJanela() {
         Stage stage = (Stage) nomeTextField.getScene().getWindow();
         stage.close();
     }
 
+    private String mapToString(Map<String, Double> map) {
+        if (map == null || map.isEmpty()) return "";
+        return map.entrySet().stream()
+                .map(entry -> entry.getKey() + "=" + entry.getValue())
+                .collect(Collectors.joining(", "));
+    }
 
     private Map<String, Double> parseDisciplinas(String disciplinasStr) {
         Map<String, Double> map = new HashMap<>();
-        if (disciplinasStr == null || disciplinasStr.isEmpty()) {
+        if (disciplinasStr == null || disciplinasStr.trim().isEmpty()) {
             return map;
         }
-
         String[] pares = disciplinasStr.split(",");
         for (String par : pares) {
             String[] chaveValor = par.split("=");
