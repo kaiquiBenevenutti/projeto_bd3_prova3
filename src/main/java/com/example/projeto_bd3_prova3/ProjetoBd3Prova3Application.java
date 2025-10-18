@@ -24,14 +24,6 @@ public class ProjetoBd3Prova3Application {
 //        new Thread(() -> {
 //            Scanner s = new Scanner(System.in);
 //            while (true) {
-//                System.out.println("\nEscolha uma opção: ");
-//                System.out.println("1 - Listar alunos");
-//                System.out.println("2 - Excluir aluno");
-//                System.out.println("3 - Inserir aluno");
-//                System.out.println("4 - Substituir aluno");
-//                System.out.println("5 - Atualizar nota");
-//                System.out.println("0 - Sair");
-//
 //                int opcao = s.nextInt();
 //                s.nextLine();
 //

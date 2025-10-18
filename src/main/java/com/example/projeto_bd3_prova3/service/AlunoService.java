@@ -28,16 +28,8 @@ public class AlunoService {
         System.out.println("Aluno removido com sucesso");
     }
 
-    public void atualizarNota(String idAluno, String disciplina, double novaNota) {
-        ObjectId objectId = new ObjectId(idAluno);
-
-        boolean notaAtualizada = repository.atualizarNotaDisciplina(objectId, disciplina, novaNota);
-
-        if(notaAtualizada) {
-            System.out.println("Nota Alterada!");
-        } else {
-            System.out.println("Não foi possível alterar a nota");
-        }
+    public Aluno atualizarAluno(Aluno aluno) {
+        return repository.save(aluno);
     }
     //public aggregate
 

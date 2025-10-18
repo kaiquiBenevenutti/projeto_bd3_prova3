@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface AlunoRepository extends MongoRepository<Aluno, ObjectId>, AlunoRepositoryCustom{
+public interface AlunoRepository extends MongoRepository<Aluno, ObjectId>{
 
     List<Aluno> findByTurma(String turma);
 
